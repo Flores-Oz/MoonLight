@@ -4,151 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MoonLight</title>
-  <style>
-    body {
-      margin: 0;
-      background: #111;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-      color: white;
-      font-family: 'Courier New', Courier, monospace;
-    }
-
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .text-container {
-      margin-left: 50px;
-      text-align: right;
-    }
-
-    .container {
-      position: relative;
-      width: 600px;
-      height: 600px;
-    }
-
-    .circle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: spin 20s linear infinite;
-    }
-
-    .circle:nth-child(1) { width: 200px; height: 200px; }
-    .circle:nth-child(2) { width: 300px; height: 300px; animation-duration: 30s; }
-    .circle:nth-child(3) { width: 400px; height: 400px; animation-duration: 40s; }
-    .circle:nth-child(4) { width: 500px; height: 500px; animation-duration: 50s; }
-    .circle:nth-child(5) { width: 600px; height: 600px; animation-duration: 60s; }
-
-    .photo {
-      position: absolute;
-      width: 60px;
-      height: 45px;
-      transform: rotate(calc(360deg / 6 * var(--i))) translateX(calc(var(--radius)));
-      transform-origin: center center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .photo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .photo:hover img {
-      transform: scale(1.2);
-    }
-
-    @keyframes spin {
-      from { transform: translate(-50%, -50%) rotate(0deg); }
-      to { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    /* Visor */
-    .image-viewer {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-      overflow: hidden;
-    }
-
-    .image-viewer.active {
-      display: flex;
-    }
-
-    .expanded-img {
-      position: absolute;
-      border-radius: 10px;
-      object-fit: contain;
-      max-width: 90vw;
-      max-height: 90vh;
-      transition: all 0.4s ease;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-      z-index: 1000;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: 100vw;
-        height: 100vw;
-      }
-
-      .photo {
-        width: 40px;
-        height: 30px;
-      }
-    }
-
-    /* Animación de texto */
-    .typing {
-      font-size: 2.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #fff;
-      width: 0;
-      animation: typing 5s steps(30) 1s forwards, blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      to {
-        width: 22ch; /* La longitud del texto "Feliz Cumpleaños Tsuki" */
-      }
-    }
-
-    @keyframes blink {
-      50% {
-        border-color: transparent;
-      }
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -165,48 +21,48 @@
   <div class="container">
     <!-- 5 círculos -->
     <div class="circle">
-      <div class="photo" style="--i:0; --radius: 100px;"><img src="1.jpg" /></div>
-      <div class="photo" style="--i:1; --radius: 100px;"><img src="2.jpg" /></div>
-      <div class="photo" style="--i:2; --radius: 100px;"><img src="3.jpg" /></div>
-      <div class="photo" style="--i:3; --radius: 100px;"><img src="4.jpg" /></div>
-      <div class="photo" style="--i:4; --radius: 100px;"><img src="5.jpg" /></div>
-      <div class="photo" style="--i:5; --radius: 100px;"><img src="6.jpg" /></div>
+      <div class="photo" style="--i:0; --radius: 100px;"><img src="img/1.jpg" /></div>
+      <div class="photo" style="--i:1; --radius: 100px;"><img src="img/2.jpg" /></div>
+      <div class="photo" style="--i:2; --radius: 100px;"><img src="img/3.jpg" /></div>
+      <div class="photo" style="--i:3; --radius: 100px;"><img src="img/4.jpg" /></div>
+      <div class="photo" style="--i:4; --radius: 100px;"><img src="img/5.jpg" /></div>
+      <div class="photo" style="--i:5; --radius: 100px;"><img src="img/6.jpg" /></div>
     </div>
 
     <div class="circle">
-      <div class="photo" style="--i:0; --radius: 150px;"><img src="7.jpg" /></div>
-      <div class="photo" style="--i:1; --radius: 150px;"><img src="8.jpg" /></div>
-      <div class="photo" style="--i:2; --radius: 150px;"><img src="9.jpg" /></div>
-      <div class="photo" style="--i:3; --radius: 150px;"><img src="10.jpg" /></div>
-      <div class="photo" style="--i:4; --radius: 150px;"><img src="11.jpg" /></div>
-      <div class="photo" style="--i:5; --radius: 150px;"><img src="12.jpg" /></div>
+      <div class="photo" style="--i:0; --radius: 150px;"><img src="img/7.jpg" /></div>
+      <div class="photo" style="--i:1; --radius: 150px;"><img src="img/8.jpg" /></div>
+      <div class="photo" style="--i:2; --radius: 150px;"><img src="img/9.jpg" /></div>
+      <div class="photo" style="--i:3; --radius: 150px;"><img src="img/10.jpg" /></div>
+      <div class="photo" style="--i:4; --radius: 150px;"><img src="img/11.jpg" /></div>
+      <div class="photo" style="--i:5; --radius: 150px;"><img src="img/12.jpg" /></div>
     </div>
 
     <div class="circle">
-      <div class="photo" style="--i:0; --radius: 200px;"><img src="13.jpg" /></div>
-      <div class="photo" style="--i:1; --radius: 200px;"><img src="14.jpg" /></div>
-      <div class="photo" style="--i:2; --radius: 200px;"><img src="15.jpg" /></div>
-      <div class="photo" style="--i:3; --radius: 200px;"><img src="16.jpg" /></div>
-      <div class="photo" style="--i:4; --radius: 200px;"><img src="17.jpg" /></div>
-      <div class="photo" style="--i:5; --radius: 200px;"><img src="18.jpg" /></div>
+      <div class="photo" style="--i:0; --radius: 200px;"><img src="img/13.jpg" /></div>
+      <div class="photo" style="--i:1; --radius: 200px;"><img src="img/14.jpg" /></div>
+      <div class="photo" style="--i:2; --radius: 200px;"><img src="img/15.jpg" /></div>
+      <div class="photo" style="--i:3; --radius: 200px;"><img src="img/16.jpg" /></div>
+      <div class="photo" style="--i:4; --radius: 200px;"><img src="img/17.jpg" /></div>
+      <div class="photo" style="--i:5; --radius: 200px;"><img src="img/18.jpg" /></div>
     </div>
 
     <div class="circle">
-      <div class="photo" style="--i:0; --radius: 250px;"><img src="19.jpg" /></div>
-      <div class="photo" style="--i:1; --radius: 250px;"><img src="20.jpg" /></div>
-      <div class="photo" style="--i:2; --radius: 250px;"><img src="21.jpg" /></div>
-      <div class="photo" style="--i:3; --radius: 250px;"><img src="22.jpg" /></div>
-      <div class="photo" style="--i:4; --radius: 250px;"><img src="23.jpg" /></div>
-      <div class="photo" style="--i:5; --radius: 250px;"><img src="24.jpg" /></div>
+      <div class="photo" style="--i:0; --radius: 250px;"><img src="img/19.jpg" /></div>
+      <div class="photo" style="--i:1; --radius: 250px;"><img src="img/20.jpg" /></div>
+      <div class="photo" style="--i:2; --radius: 250px;"><img src="img/21.jpg" /></div>
+      <div class="photo" style="--i:3; --radius: 250px;"><img src="img/22.jpg" /></div>
+      <div class="photo" style="--i:4; --radius: 250px;"><img src="img/23.jpg" /></div>
+      <div class="photo" style="--i:5; --radius: 250px;"><img src="img/24.jpg" /></div>
     </div>
 
     <div class="circle">
-      <div class="photo" style="--i:0; --radius: 300px;"><img src="25.jpg" /></div>
-      <div class="photo" style="--i:1; --radius: 300px;"><img src="26.jpg" /></div>
-      <div class="photo" style="--i:2; --radius: 300px;"><img src="27.jpg" /></div>
-      <div class="photo" style="--i:3; --radius: 300px;"><img src="28.jpg" /></div>
-      <div class="photo" style="--i:4; --radius: 300px;"><img src="29.jpg" /></div>
-      <div class="photo" style="--i:5; --radius: 300px;"><img src="30.jpg" /></div>
+      <div class="photo" style="--i:0; --radius: 300px;"><img src="img/25.jpg" /></div>
+      <div class="photo" style="--i:1; --radius: 300px;"><img src="img/26.jpg" /></div>
+      <div class="photo" style="--i:2; --radius: 300px;"><img src="img/27.jpg" /></div>
+      <div class="photo" style="--i:3; --radius: 300px;"><img src="img/28.jpg" /></div>
+      <div class="photo" style="--i:4; --radius: 300px;"><img src="img/29.jpg" /></div>
+      <div class="photo" style="--i:5; --radius: 300px;"><img src="img/30.jpg" /></div>
     </div>
 
   </div>
@@ -214,46 +70,22 @@
 
 <!-- Visor -->
 <div class="image-viewer" id="viewer">
+  <!-- Flechas dentro del visor -->
+<span class="nav-btn left" id="prevBtn">&#10094;</span>
+<span class="nav-btn right" id="nextBtn">&#10095;</span>
   <span class="close-btn" id="closeBtn">&times;</span>
 </div>
 
-<script>
-  const photos = document.querySelectorAll('.photo img');
-  const viewer = document.getElementById('viewer');
-  const closeBtn = document.getElementById('closeBtn');
 
-  photos.forEach(img => {
-    img.addEventListener('click', () => {
-      const rect = img.getBoundingClientRect();
-      const clone = img.cloneNode();
 
-      clone.classList.add('expanded-img');
-      clone.style.top = rect.top + 'px';
-      clone.style.left = rect.left + 'px';
-      clone.style.width = rect.width + 'px';
-      clone.style.height = rect.height + 'px';
+<audio id="bg-music" loop>
+  <source src="music/Song1.m4a" type="audio/mp3">
+  Tu navegador no soporta el audio.
+</audio>
 
-      viewer.innerHTML = '';
-      viewer.appendChild(closeBtn);
-      viewer.appendChild(clone);
-      viewer.classList.add('active');
+<button id="music-toggle">▶</button>
 
-      // Forzar reflow antes de expandir (truco)
-      requestAnimationFrame(() => {
-        clone.style.top = '50%';
-        clone.style.left = '50%';
-        clone.style.transform = 'translate(-50%, -50%)';
-        clone.style.width = '90vw';
-        clone.style.height = 'auto';
-      });
-    });
-  });
-
-  closeBtn.addEventListener('click', () => viewer.classList.remove('active'));
-  viewer.addEventListener('click', (e) => {
-    if (e.target === viewer) viewer.classList.remove('active');
-  });
-</script>
-
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/music.js"></script>
 </body>
 </html>
